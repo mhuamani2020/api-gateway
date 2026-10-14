@@ -1,0 +1,36 @@
+server:
+  port: 8089
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        # Ruta para Customer Service
+        - id: customer-service
+          uri: lb://CUSTOMER-SERVICE
+          predicates:
+            - Path=/customers, /customers/**
+
+        # Ruta para Bank Account Service
+        - id: bank-account-service
+          uri: lb://BANK-ACCOUNT-SERVICE
+          predicates:
+            - Path=/bank-accounts, /bank-accounts/**
+
+        # Ruta para Credit Service
+        - id: credit-service
+          uri: lb://CREDIT-SERVICE
+          predicates:
+            - Path=/credits, /credits/**, /customer/**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
