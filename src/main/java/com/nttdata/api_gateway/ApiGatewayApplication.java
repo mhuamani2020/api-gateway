@@ -16,13 +16,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class ApiGatewayApplication {
 
-	/**
-	 * Punto de entrada de la aplicación Spring Boot.
-	 *
-	 * @param args argumentos de línea de comandos proporcionados al arrancar
-	 */
-	public static void main(String[] args) {
-		SpringApplication.run(ApiGatewayApplication.class, args);
-	}
+    /**
+     * Punto de entrada de la aplicación Spring Boot.
+     *
+     * @param args argumentos de línea de comandos proporcionados al arrancar
+     */
+    public static void main(String[] args) {
+        SpringApplication.run(ApiGatewayApplication.class, args);
+    }
 
 }
